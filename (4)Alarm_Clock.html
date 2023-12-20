@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="container">
+    <div id="top">
+        <span id="date" class="valt"></span>
+        <span id="month" class="valt"></span>
+        <span id="year" class="valt"></span>
+    </div>
+    <div id="mid">
+        <div class="block">
+            <div class="hold">Hour</div>
+            <div id="hval" class="valm"></div>
+        </div>    
+        <div class="block dot" >:</div>
+        <div class="block">
+            <div class="hold">Minute</div>
+            <div id="minval" class="valm"></div>
+        </div>    
+        <div class="block dot">:</div>    
+        <div class="block">
+            <div class="hold">Second</div>
+            <div id="secval" class="valm"></div>
+        </div>    
+    </div>
+    <div id="low">ADITYA</div>
+</div>
+</body>
+
+<style>
+*{
+    color: rgb(6, 1, 11);
+    margin: 10px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+body::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    height: 100%;
+    width: 100%;
+    background: url('tulip.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -3;
+}
+
+body::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    z-index: -2;
+}
+
+
+#container{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20vh;
+    width: 500px;
+    height: 300px;
+    border-radius: 10%;
+    box-shadow: 0 0 10px;
+    /* filter: blur(3px); */
+    overflow: hidden;
+}
+
+#container::after{
+    margin: auto;
+    position: absolute;
+    content: " ";
+    left: 33%;
+    padding: 10px;
+    width: 500px;
+    height: 300px;
+    border-radius: 10%;
+    background: url('tulip.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    filter: blur(5px); 
+    z-index: -1;
+}
+
+#top{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: larger;
+    width: 400px;
+    border-radius: 5%;
+    box-shadow:inset 0 0 7px;
+}
+
+
+
+#mid{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    width: 400px;
+    box-shadow:inset 0 0 7px;}
+
+
+.block{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}  
+
+.dot{
+    justify-content: space-evenly;
+    font-size: 2rem;
+}
+
+.hold{
+    position: relative;
+    margin: 0;
+}
+
+.valm{
+    position: absolute;
+    font-size: 2.4rem;
+    margin-top: 20px;
+}
+
+#low{
+    margin: auto;
+    justify-content: center;
+    border-radius: 10%;
+    box-shadow: 2px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+</style>
+
+
+<script>
+
+
+
+
+setInterval("modify()",1000)
+
+function modify()
+{
+let d=new Date();
+let hr=d.getHours();
+let min=d.getMinutes();
+let sec=d.getSeconds();
+let day=d.getDay();
+let date=d.getDate();
+let month=d.getMonth();
+let year=d.getFullYear();
+
+
+document.getElementById("date").innerHTML=date+" (Monday)"
+document.getElementById("month").innerHTML="February"
+document.getElementById("year").innerHTML=year
+document.getElementById("hval").innerHTML=hr
+document.getElementById("minval").innerHTML=min
+document.getElementById("secval").innerHTML=sec
+}
+
+
+</script>
+</html>

@@ -159,7 +159,9 @@ body::after{
 <script>
 
 
+days= ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
+months= ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 setInterval("modify()",1000)
 
@@ -174,9 +176,8 @@ let date=d.getDate();
 let month=d.getMonth();
 let year=d.getFullYear();
 
-
-document.getElementById("date").innerHTML=date+" (Monday)"
-document.getElementById("month").innerHTML="February"
+document.getElementById("date").innerHTML=date+` ${days[day]}`
+document.getElementById("month").innerHTML=months[month]
 document.getElementById("year").innerHTML=year
 document.getElementById("hval").innerHTML=hr
 document.getElementById("minval").innerHTML=min
